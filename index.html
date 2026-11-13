@@ -1,461 +1,444 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2775.1">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Home Dashboard</title>
+
+<style type="text/css">
+
+body {
+    margin: 0;
+    padding: 20px;
+    background: #101722;
+    color: #e7edf5;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+    color: #8498ae;
+    font-size: 14px;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.clock {
+    text-align: center;
+    font-size: 95px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-top: 5px;
+}
+
+.date {
+    text-align: center;
+    font-size: 24px;
+    color: #b8c6d8;
+    margin-top: 5px;
+}
+
+.location {
+    text-align: center;
+    color: #8498ae;
+    font-size: 13px;
+    letter-spacing: 3px;
+    margin-top: 10px;
+}
+
+.line {
+    height: 1px;
+    background: #344253;
+    margin: 22px 0;
+}
+
+.panels {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.panel {
+    display: table-cell;
+    width: 50%;
+    vertical-align: top;
+    padding: 10px 20px;
+}
+
+.panel-title {
+    color: #91a5bb;
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.temperature {
+    font-size: 65px;
+    font-weight: bold;
+}
+
+.description {
+    color: #aab9ca;
+    font-size: 17px;
+    margin-top: 5px;
+}
+
+.sun-row {
+    font-size: 24px;
+    margin: 12px 0;
+}
+
+.sun-label {
+    display: inline-block;
+    width: 125px;
+    color: #aab9ca;
+}
+
+.sun-value {
+    color: #f1c36d;
+}
+
+.calendar-title {
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.calendar {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 5px;
+    text-align: center;
+    table-layout: fixed;
+}
+
+.calendar th {
+    color: #8498ae;
+    font-size: 13px;
+    padding: 6px 0;
+}
+
+.calendar td {
+    background: #1c2938;
+    border-radius: 5px;
+    height: 38px;
+    font-size: 17px;
+}
+
+.calendar td.today {
+    background: #d49a45;
+    color: #101722;
+    font-weight: bold;
+}
+
+.calendar td.empty {
+    background: transparent;
+}
+
+.footer {
+    text-align: center;
+    color: #65788e;
+    font-size: 12px;
+    margin-top: 25px;
+}
+
+</style>
 </head>
+
 <body>
-<p class="p1"><br></p>
-<p class="p2">&lt;!DOCTYPE html&gt;</p>
-<p class="p2">&lt;html&gt;</p>
-<p class="p2">&lt;head&gt;</p>
-<p class="p2">&lt;meta charset="UTF-8"&gt;</p>
-<p class="p2">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><br></p>
-<p class="p2">&lt;title&gt;Home Dashboard&lt;/title&gt;</p>
-<p class="p1"><br></p>
-<p class="p2">&lt;style type="text/css"&gt;</p>
-<p class="p1"><br></p>
-<p class="p2">body {</p>
-<p class="p2"><span class="Apple-converted-space">    </span>margin: 0;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>padding: 20px;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>background: #101722;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>color: #e7edf5;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>font-family: Arial, Helvetica, sans-serif;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.header {</p>
-<p class="p2"><span class="Apple-converted-space">    </span>color: #8498ae;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>font-size: 14px;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>letter-spacing: 3px;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>margin-bottom: 15px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.clock {</p>
-<p class="p2"><span class="Apple-converted-space">    </span>text-align: center;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>font-size: 95px;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>font-weight: bold;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>letter-spacing: 3px;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>margin-top: 5px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.date {</p>
-<p class="p2"><span class="Apple-converted-space">    </span>text-align: center;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>font-size: 24px;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>color: #b8c6d8;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>margin-top: 5px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.location {</p>
-<p class="p2"><span class="Apple-converted-space">    </span>text-align: center;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>color: #8498ae;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>font-size: 13px;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>letter-spacing: 3px;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>margin-top: 10px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.line {</p>
-<p class="p2"><span class="Apple-converted-space">    </span>height: 1px;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>background: #344253;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>margin: 22px 0;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.panels {</p>
-<p class="p2"><span class="Apple-converted-space">    </span>display: table;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>width: 100%;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>table-layout: fixed;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.panel {</p>
-<p class="p2"><span class="Apple-converted-space">    </span>display: table-cell;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>width: 50%;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>vertical-align: top;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>padding: 10px 20px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.panel-title {</p>
-<p class="p2"><span class="Apple-converted-space">    </span>color: #91a5bb;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>font-size: 14px;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>letter-spacing: 2px;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>margin-bottom: 12px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.temperature {</p>
-<p class="p2"><span class="Apple-converted-space">    </span>font-size: 65px;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>font-weight: bold;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.description {</p>
-<p class="p2"><span class="Apple-converted-space">    </span>color: #aab9ca;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>font-size: 17px;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>margin-top: 5px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.sun-row {</p>
-<p class="p2"><span class="Apple-converted-space">    </span>font-size: 24px;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>margin: 12px 0;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.sun-label {</p>
-<p class="p2"><span class="Apple-converted-space">    </span>display: inline-block;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>width: 125px;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>color: #aab9ca;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.sun-value {</p>
-<p class="p2"><span class="Apple-converted-space">    </span>color: #f1c36d;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.calendar-title {</p>
-<p class="p2"><span class="Apple-converted-space">    </span>font-size: 24px;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>margin-bottom: 12px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.calendar {</p>
-<p class="p2"><span class="Apple-converted-space">    </span>width: 100%;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>border-collapse: separate;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>border-spacing: 5px;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>text-align: center;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>table-layout: fixed;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.calendar th {</p>
-<p class="p2"><span class="Apple-converted-space">    </span>color: #8498ae;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>font-size: 13px;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>padding: 6px 0;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.calendar td {</p>
-<p class="p2"><span class="Apple-converted-space">    </span>background: #1c2938;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>border-radius: 5px;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>height: 38px;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>font-size: 17px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.calendar td.today {</p>
-<p class="p2"><span class="Apple-converted-space">    </span>background: #d49a45;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>color: #101722;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>font-weight: bold;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.calendar td.empty {</p>
-<p class="p2"><span class="Apple-converted-space">    </span>background: transparent;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.footer {</p>
-<p class="p2"><span class="Apple-converted-space">    </span>text-align: center;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>color: #65788e;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>font-size: 12px;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>margin-top: 25px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">&lt;/style&gt;</p>
-<p class="p2">&lt;/head&gt;</p>
-<p class="p1"><br></p>
-<p class="p2">&lt;body&gt;</p>
-<p class="p1"><br></p>
-<p class="p2">&lt;div class="header"&gt;HOME DASHBOARD&lt;/div&gt;</p>
-<p class="p1"><br></p>
-<p class="p2">&lt;div class="clock" id="clock"&gt;--:--&lt;/div&gt;</p>
-<p class="p1"><br></p>
-<p class="p2">&lt;div class="date" id="date"&gt;</p>
-<p class="p2">Loading...</p>
-<p class="p2">&lt;/div&gt;</p>
-<p class="p1"><br></p>
-<p class="p2">&lt;div class="location"&gt;</p>
-<p class="p2">ZAGREB · CROATIA</p>
-<p class="p2">&lt;/div&gt;</p>
-<p class="p1"><br></p>
-<p class="p2">&lt;div class="line"&gt;&lt;/div&gt;</p>
-<p class="p1"><br></p>
-<p class="p2">&lt;div class="panels"&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">    </span>&lt;div class="panel"&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;div class="panel-title"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>WEATHER</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;div class="temperature" id="temperature"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>--°</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;div class="description" id="description"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>Loading weather...</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">    </span>&lt;div class="panel"&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;div class="panel-title"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>SUNRISE &amp; SUNSET</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;div class="sun-row"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span>&lt;span class="sun-label"&gt;Sunrise&lt;/span&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span>&lt;span class="sun-value" id="sunrise"&gt;--:--&lt;/span&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;div class="sun-row"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span>&lt;span class="sun-label"&gt;Sunset&lt;/span&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span>&lt;span class="sun-value" id="sunset"&gt;--:--&lt;/span&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><br></p>
-<p class="p2">&lt;/div&gt;</p>
-<p class="p1"><br></p>
-<p class="p2">&lt;div class="line"&gt;&lt;/div&gt;</p>
-<p class="p1"><br></p>
-<p class="p2">&lt;div class="calendar-title" id="monthTitle"&gt;</p>
-<p class="p2">Calendar</p>
-<p class="p2">&lt;/div&gt;</p>
-<p class="p1"><br></p>
-<p class="p2">&lt;table class="calendar"&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">    </span>&lt;thead&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;tr&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span>&lt;th&gt;MON&lt;/th&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span>&lt;th&gt;TUE&lt;/th&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span>&lt;th&gt;WED&lt;/th&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span>&lt;th&gt;THU&lt;/th&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span>&lt;th&gt;FRI&lt;/th&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span>&lt;th&gt;SAT&lt;/th&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span>&lt;th&gt;SUN&lt;/th&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;/tr&gt;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>&lt;/thead&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">    </span>&lt;tbody id="calendarBody"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>&lt;/tbody&gt;</p>
-<p class="p1"><br></p>
-<p class="p2">&lt;/table&gt;</p>
-<p class="p1"><br></p>
-<p class="p2">&lt;div class="footer"&gt;</p>
-<p class="p2">HOME DASHBOARD · ZAGREB</p>
-<p class="p2">&lt;/div&gt;</p>
-<p class="p1"><br></p>
-<p class="p2">&lt;script type="text/javascript"&gt;</p>
-<p class="p1"><br></p>
-<p class="p2">var days = [</p>
-<p class="p2"><span class="Apple-converted-space">    </span>"Nedjelja",</p>
-<p class="p2"><span class="Apple-converted-space">    </span>"Ponedjeljak",</p>
-<p class="p2"><span class="Apple-converted-space">    </span>"Utorak",</p>
-<p class="p2"><span class="Apple-converted-space">    </span>"Srijeda",</p>
-<p class="p2"><span class="Apple-converted-space">    </span>"Četvrtak",</p>
-<p class="p2"><span class="Apple-converted-space">    </span>"Petak",</p>
-<p class="p2"><span class="Apple-converted-space">    </span>"Subota"</p>
-<p class="p2">];</p>
-<p class="p1"><br></p>
-<p class="p2">var months = [</p>
-<p class="p2"><span class="Apple-converted-space">    </span>"siječnja",</p>
-<p class="p2"><span class="Apple-converted-space">    </span>"veljače",</p>
-<p class="p2"><span class="Apple-converted-space">    </span>"ožujka",</p>
-<p class="p2"><span class="Apple-converted-space">    </span>"travnja",</p>
-<p class="p2"><span class="Apple-converted-space">    </span>"svibnja",</p>
-<p class="p2"><span class="Apple-converted-space">    </span>"lipnja",</p>
-<p class="p2"><span class="Apple-converted-space">    </span>"srpnja",</p>
-<p class="p2"><span class="Apple-converted-space">    </span>"kolovoza",</p>
-<p class="p2"><span class="Apple-converted-space">    </span>"rujna",</p>
-<p class="p2"><span class="Apple-converted-space">    </span>"listopada",</p>
-<p class="p2"><span class="Apple-converted-space">    </span>"studenoga",</p>
-<p class="p2"><span class="Apple-converted-space">    </span>"prosinca"</p>
-<p class="p2">];</p>
-<p class="p1"><br></p>
-<p class="p2">var monthNames = [</p>
-<p class="p2"><span class="Apple-converted-space">    </span>"Siječanj",</p>
-<p class="p2"><span class="Apple-converted-space">    </span>"Veljača",</p>
-<p class="p2"><span class="Apple-converted-space">    </span>"Ožujak",</p>
-<p class="p2"><span class="Apple-converted-space">    </span>"Travanj",</p>
-<p class="p2"><span class="Apple-converted-space">    </span>"Svibanj",</p>
-<p class="p2"><span class="Apple-converted-space">    </span>"Lipanj",</p>
-<p class="p2"><span class="Apple-converted-space">    </span>"Srpanj",</p>
-<p class="p2"><span class="Apple-converted-space">    </span>"Kolovoz",</p>
-<p class="p2"><span class="Apple-converted-space">    </span>"Rujan",</p>
-<p class="p2"><span class="Apple-converted-space">    </span>"Listopad",</p>
-<p class="p2"><span class="Apple-converted-space">    </span>"Studeni",</p>
-<p class="p2"><span class="Apple-converted-space">    </span>"Prosinac"</p>
-<p class="p2">];</p>
-<p class="p1"><br></p>
-<p class="p2">function updateClock() {</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">    </span>var now = new Date();</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">    </span>var h = now.getHours();</p>
-<p class="p2"><span class="Apple-converted-space">    </span>var m = now.getMinutes();</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">    </span>document.getElementById("clock").innerHTML =</p>
-<p class="p2"><span class="Apple-converted-space">        </span>(h &lt; 10 ? "0" : "") + h + ":" +</p>
-<p class="p2"><span class="Apple-converted-space">        </span>(m &lt; 10 ? "0" : "") + m;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">    </span>document.getElementById("date").innerHTML =</p>
-<p class="p2"><span class="Apple-converted-space">        </span>days[now.getDay()] + ", " +</p>
-<p class="p2"><span class="Apple-converted-space">        </span>now.getDate() + ". " +</p>
-<p class="p2"><span class="Apple-converted-space">        </span>months[now.getMonth()] + " " +</p>
-<p class="p2"><span class="Apple-converted-space">        </span>now.getFullYear();</p>
-<p class="p1"><br></p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">function drawCalendar() {</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">    </span>var now = new Date();</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">    </span>var year = now.getFullYear();</p>
-<p class="p2"><span class="Apple-converted-space">    </span>var month = now.getMonth();</p>
-<p class="p2"><span class="Apple-converted-space">    </span>var today = now.getDate();</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">    </span>document.getElementById("monthTitle").innerHTML =</p>
-<p class="p2"><span class="Apple-converted-space">        </span>monthNames[month] + " " + year;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">    </span>var firstDay =</p>
-<p class="p2"><span class="Apple-converted-space">        </span>new Date(year, month, 1).getDay();</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">    </span>var daysInMonth =</p>
-<p class="p2"><span class="Apple-converted-space">        </span>new Date(year, month + 1, 0).getDate();</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">    </span>var offset = (firstDay + 6) % 7;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">    </span>var html = "";</p>
-<p class="p2"><span class="Apple-converted-space">    </span>var day = 1;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">    </span>for (var row = 0; row &lt; 6; row++) {</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">        </span>html += "&lt;tr&gt;";</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">        </span>for (var col = 0; col &lt; 7; col++) {</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">            </span>if ((row === 0 &amp;&amp; col &lt; offset) ||</p>
-<p class="p2"><span class="Apple-converted-space">                </span>day &gt; daysInMonth) {</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">                </span>html += '&lt;td class="empty"&gt;&lt;/td&gt;';</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">            </span>} else {</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">                </span>var cls =</p>
-<p class="p2"><span class="Apple-converted-space">                    </span>(day === today) ? "today" : "";</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">                </span>html += '&lt;td class="' +</p>
-<p class="p2"><span class="Apple-converted-space">                    </span>cls + '"&gt;' + day + '&lt;/td&gt;';</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">                </span>day++;</p>
-<p class="p2"><span class="Apple-converted-space">            </span>}</p>
-<p class="p2"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">        </span>html += "&lt;/tr&gt;";</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">        </span>if (day &gt; daysInMonth) {</p>
-<p class="p2"><span class="Apple-converted-space">            </span>break;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">    </span>document.getElementById("calendarBody").innerHTML =</p>
-<p class="p2"><span class="Apple-converted-space">        </span>html;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">function weatherDescription(code) {</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">    </span>if (code === 0) return "Vedro";</p>
-<p class="p2"><span class="Apple-converted-space">    </span>if (code &lt;= 3) return "Djelomično oblačno";</p>
-<p class="p2"><span class="Apple-converted-space">    </span>if (code &lt;= 48) return "Magla";</p>
-<p class="p2"><span class="Apple-converted-space">    </span>if (code &lt;= 67) return "Kiša";</p>
-<p class="p2"><span class="Apple-converted-space">    </span>if (code &lt;= 77) return "Snijeg";</p>
-<p class="p2"><span class="Apple-converted-space">    </span>if (code &lt;= 82) return "Pljuskovi";</p>
-<p class="p2"><span class="Apple-converted-space">    </span>if (code &lt;= 86) return "Snježni pljuskovi";</p>
-<p class="p2"><span class="Apple-converted-space">    </span>if (code &gt;= 95) return "Grmljavina";</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">    </span>return "Promjenjivo vrijeme";</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">function loadWeather() {</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">    </span>var url =</p>
-<p class="p2"><span class="Apple-converted-space">        </span>"https://api.open-meteo.com/v1/forecast" +</p>
-<p class="p2"><span class="Apple-converted-space">        </span>"?latitude=45.8150" +</p>
-<p class="p2"><span class="Apple-converted-space">        </span>"&amp;longitude=15.9819" +</p>
-<p class="p2"><span class="Apple-converted-space">        </span>"&amp;current=temperature_2m,weather_code" +</p>
-<p class="p2"><span class="Apple-converted-space">        </span>"&amp;daily=sunrise,sunset" +</p>
-<p class="p2"><span class="Apple-converted-space">        </span>"&amp;timezone=Europe%2FZagreb";</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">    </span>var xhr = new XMLHttpRequest();</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">    </span>xhr.open("GET", url, true);</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">    </span>xhr.onreadystatechange = function() {</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">        </span>if (xhr.readyState === 4) {</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">            </span>if (xhr.status === 200) {</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">                </span>try {</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">                    </span>var data =</p>
-<p class="p2"><span class="Apple-converted-space">                        </span>JSON.parse(xhr.responseText);</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">                    </span>document.getElementById(</p>
-<p class="p2"><span class="Apple-converted-space">                        </span>"temperature"</p>
-<p class="p2"><span class="Apple-converted-space">                    </span>).innerHTML =</p>
-<p class="p2"><span class="Apple-converted-space">                        </span>Math.round(</p>
-<p class="p2"><span class="Apple-converted-space">                            </span>data.current.temperature_2m</p>
-<p class="p2"><span class="Apple-converted-space">                        </span>) + "°";</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">                    </span>document.getElementById(</p>
-<p class="p2"><span class="Apple-converted-space">                        </span>"description"</p>
-<p class="p2"><span class="Apple-converted-space">                    </span>).innerHTML =</p>
-<p class="p2"><span class="Apple-converted-space">                        </span>weatherDescription(</p>
-<p class="p2"><span class="Apple-converted-space">                            </span>data.current.weather_code</p>
-<p class="p2"><span class="Apple-converted-space">                        </span>);</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">                    </span>document.getElementById(</p>
-<p class="p2"><span class="Apple-converted-space">                        </span>"sunrise"</p>
-<p class="p2"><span class="Apple-converted-space">                    </span>).innerHTML =</p>
-<p class="p2"><span class="Apple-converted-space">                        </span>data.daily.sunrise[0].substring(11, 16);</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">                    </span>document.getElementById(</p>
-<p class="p2"><span class="Apple-converted-space">                        </span>"sunset"</p>
-<p class="p2"><span class="Apple-converted-space">                    </span>).innerHTML =</p>
-<p class="p2"><span class="Apple-converted-space">                        </span>data.daily.sunset[0].substring(11, 16);</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">                </span>} catch(e) {</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">                    </span>document.getElementById(</p>
-<p class="p2"><span class="Apple-converted-space">                        </span>"description"</p>
-<p class="p2"><span class="Apple-converted-space">                    </span>).innerHTML =</p>
-<p class="p2"><span class="Apple-converted-space">                        </span>"Weather unavailable";</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">                </span>}</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">            </span>} else {</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">                </span>document.getElementById(</p>
-<p class="p2"><span class="Apple-converted-space">                    </span>"description"</p>
-<p class="p2"><span class="Apple-converted-space">                </span>).innerHTML =</p>
-<p class="p2"><span class="Apple-converted-space">                    </span>"Weather unavailable";</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">            </span>}</p>
-<p class="p2"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><span class="Apple-converted-space">    </span>};</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">    </span>xhr.send();</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">updateClock();</p>
-<p class="p2">drawCalendar();</p>
-<p class="p2">loadWeather();</p>
-<p class="p1"><br></p>
-<p class="p2">setInterval(updateClock, 1000);</p>
-<p class="p2">setInterval(drawCalendar, 60000);</p>
-<p class="p2">setInterval(loadWeather, 1800000);</p>
-<p class="p1"><br></p>
-<p class="p2">&lt;/script&gt;</p>
-<p class="p1"><br></p>
-<p class="p2">&lt;/body&gt;</p>
-<p class="p2">&lt;/html&gt;</p>
+
+<div class="header">HOME DASHBOARD</div>
+
+<div class="clock" id="clock">--:--</div>
+
+<div class="date" id="date">
+Loading...
+</div>
+
+<div class="location">
+ZAGREB · CROATIA
+</div>
+
+<div class="line"></div>
+
+<div class="panels">
+
+    <div class="panel">
+
+        <div class="panel-title">
+        WEATHER
+        </div>
+
+        <div class="temperature" id="temperature">
+        --°
+        </div>
+
+        <div class="description" id="description">
+        Loading weather...
+        </div>
+
+    </div>
+
+    <div class="panel">
+
+        <div class="panel-title">
+        SUNRISE & SUNSET
+        </div>
+
+        <div class="sun-row">
+            <span class="sun-label">Sunrise</span>
+            <span class="sun-value" id="sunrise">--:--</span>
+        </div>
+
+        <div class="sun-row">
+            <span class="sun-label">Sunset</span>
+            <span class="sun-value" id="sunset">--:--</span>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="line"></div>
+
+<div class="calendar-title" id="monthTitle">
+Calendar
+</div>
+
+<table class="calendar">
+
+    <thead>
+        <tr>
+            <th>MON</th>
+            <th>TUE</th>
+            <th>WED</th>
+            <th>THU</th>
+            <th>FRI</th>
+            <th>SAT</th>
+            <th>SUN</th>
+        </tr>
+    </thead>
+
+    <tbody id="calendarBody">
+    </tbody>
+
+</table>
+
+<div class="footer">
+HOME DASHBOARD · ZAGREB
+</div>
+
+<script type="text/javascript">
+
+var days = [
+    "Nedjelja",
+    "Ponedjeljak",
+    "Utorak",
+    "Srijeda",
+    "Četvrtak",
+    "Petak",
+    "Subota"
+];
+
+var months = [
+    "siječnja",
+    "veljače",
+    "ožujka",
+    "travnja",
+    "svibnja",
+    "lipnja",
+    "srpnja",
+    "kolovoza",
+    "rujna",
+    "listopada",
+    "studenoga",
+    "prosinca"
+];
+
+var monthNames = [
+    "Siječanj",
+    "Veljača",
+    "Ožujak",
+    "Travanj",
+    "Svibanj",
+    "Lipanj",
+    "Srpanj",
+    "Kolovoz",
+    "Rujan",
+    "Listopad",
+    "Studeni",
+    "Prosinac"
+];
+
+function updateClock() {
+
+    var now = new Date();
+
+    var h = now.getHours();
+    var m = now.getMinutes();
+
+    document.getElementById("clock").innerHTML =
+        (h < 10 ? "0" : "") + h + ":" +
+        (m < 10 ? "0" : "") + m;
+
+    document.getElementById("date").innerHTML =
+        days[now.getDay()] + ", " +
+        now.getDate() + ". " +
+        months[now.getMonth()] + " " +
+        now.getFullYear();
+
+}
+
+function drawCalendar() {
+
+    var now = new Date();
+
+    var year = now.getFullYear();
+    var month = now.getMonth();
+    var today = now.getDate();
+
+    document.getElementById("monthTitle").innerHTML =
+        monthNames[month] + " " + year;
+
+    var firstDay =
+        new Date(year, month, 1).getDay();
+
+    var daysInMonth =
+        new Date(year, month + 1, 0).getDate();
+
+    var offset = (firstDay + 6) % 7;
+
+    var html = "";
+    var day = 1;
+
+    for (var row = 0; row < 6; row++) {
+
+        html += "<tr>";
+
+        for (var col = 0; col < 7; col++) {
+
+            if ((row === 0 && col < offset) ||
+                day > daysInMonth) {
+
+                html += '<td class="empty"></td>';
+
+            } else {
+
+                var cls =
+                    (day === today) ? "today" : "";
+
+                html += '<td class="' +
+                    cls + '">' + day + '</td>';
+
+                day++;
+            }
+        }
+
+        html += "</tr>";
+
+        if (day > daysInMonth) {
+            break;
+        }
+    }
+
+    document.getElementById("calendarBody").innerHTML =
+        html;
+}
+
+function weatherDescription(code) {
+
+    if (code === 0) return "Vedro";
+    if (code <= 3) return "Djelomično oblačno";
+    if (code <= 48) return "Magla";
+    if (code <= 67) return "Kiša";
+    if (code <= 77) return "Snijeg";
+    if (code <= 82) return "Pljuskovi";
+    if (code <= 86) return "Snježni pljuskovi";
+    if (code >= 95) return "Grmljavina";
+
+    return "Promjenjivo vrijeme";
+}
+
+function loadWeather() {
+
+    var url =
+        "https://api.open-meteo.com/v1/forecast" +
+        "?latitude=45.8150" +
+        "&longitude=15.9819" +
+        "&current=temperature_2m,weather_code" +
+        "&daily=sunrise,sunset" +
+        "&timezone=Europe%2FZagreb";
+
+    var xhr = new XMLHttpRequest();
+
+    xhr.open("GET", url, true);
+
+    xhr.onreadystatechange = function() {
+
+        if (xhr.readyState === 4) {
+
+            if (xhr.status === 200) {
+
+                try {
+
+                    var data =
+                        JSON.parse(xhr.responseText);
+
+                    document.getElementById(
+                        "temperature"
+                    ).innerHTML =
+                        Math.round(
+                            data.current.temperature_2m
+                        ) + "°";
+
+                    document.getElementById(
+                        "description"
+                    ).innerHTML =
+                        weatherDescription(
+                            data.current.weather_code
+                        );
+
+                    document.getElementById(
+                        "sunrise"
+                    ).innerHTML =
+                        data.daily.sunrise[0].substring(11, 16);
+
+                    document.getElementById(
+                        "sunset"
+                    ).innerHTML =
+                        data.daily.sunset[0].substring(11, 16);
+
+                } catch(e) {
+
+                    document.getElementById(
+                        "description"
+                    ).innerHTML =
+                        "Weather unavailable";
+
+                }
+
+            } else {
+
+                document.getElementById(
+                    "description"
+                ).innerHTML =
+                    "Weather unavailable";
+
+            }
+        }
+    };
+
+    xhr.send();
+}
+
+updateClock();
+drawCalendar();
+loadWeather();
+
+setInterval(updateClock, 1000);
+setInterval(drawCalendar, 60000);
+setInterval(loadWeather, 1800000);
+
+</script>
+
 </body>
 </html>
